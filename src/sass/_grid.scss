@@ -1,0 +1,37 @@
+.grid-row {
+    display: flex;
+    flex-flow: column wrap;
+    @media (min-width: 520px) {
+        flex-flow: row wrap;
+    }
+
+}
+
+// [class*="col-"] {
+//     flex: 1;
+// }
+
+.col-1  { flex: .5; }
+.col-2  { flex: 2;  }
+.col-3  { flex: 3;  }
+.col-4  { flex: 4;  }
+.col-5  { flex: 5;  }
+.col-6  { flex: 6;  }
+.col-7  { flex: 7;  }
+.col-8  { flex: 8;  }
+.col-9  { flex: 9;  }
+.col-10 { flex: 10; }
+.col-11 { flex: 11; }
+.col-12 { flex: 12; }
+.col-13 { flex: 13; }
+.col-14 { flex: 14; }
+.col-15 { flex: 15; }
+.col-16 { flex: 16; }
+.col-17 { flex: 17; }
+.col-18 { flex: 18; }
+.col-19 { flex: 19; }
+.col-20 { flex: 20; }
+.col-21 { flex: 21; }
+.col-22{ flex: 22; }
+.col-23{ flex: 13; }
+.col-24 { flex: 24; }

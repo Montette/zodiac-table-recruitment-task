@@ -492,7 +492,8 @@ body {
       right: 1.5px;
       margin-top: 1px;
       display: none;
-      font-weight: bold; }
+      font-weight: bold;
+      color: #fff; }
   .user__action, .user__name, .user__zodiac, .user__age {
     margin-left: 0;
     padding: 0 15px;
@@ -504,42 +505,62 @@ body {
     font-size: 14px; }
   .user p {
     margin: 0; }
-  .user:hover, .user.hovering {
+  .user:hover, .user.remove, .user.hovering {
     width: 651px;
     -webkit-transform: translateX(-11px);
             transform: translateX(-11px);
-    padding-right: 0;
-    padding-left: 0;
-    z-index: -1000; }
-    .user:hover .action,
+    padding: 0; }
+    .user:hover .action, .user.remove .action,
     .user:hover .user__name,
+    .user.remove .user__name,
     .user:hover .user__zodiac,
-    .user:hover .user__age, .user.hovering .action,
+    .user.remove .user__zodiac,
+    .user:hover .user__age,
+    .user.remove .user__age, .user.hovering .action,
     .user.hovering .user__name,
     .user.hovering .user__zodiac,
     .user.hovering .user__age {
       background-color: #405a74;
       padding-left: 38px; }
-    .user:hover .user__name, .user.hovering .user__name {
+    
+    .user:hover .user__name,
+    .user.remove .user__name, .user.hovering .user__name {
       padding-left: 30px; }
-    .user:hover .user__age, .user.hovering .user__age {
+    
+    .user:hover .user__age,
+    .user.remove .user__age, .user.hovering .user__age {
       padding-left: 44px; }
-    .user:hover .user__zodiac, .user.hovering .user__zodiac {
+    
+    .user:hover .user__zodiac,
+    .user.remove .user__zodiac, .user.hovering .user__zodiac {
       padding-left: 39px;
       -webkit-box-flex: 7;
           -ms-flex: 7;
               flex: 7; }
-    .user:hover .action, .user.hovering .action {
+    .user:hover .action, .user.remove .action, .user.hovering .action {
       padding: 0 18px;
       -webkit-box-flex: 3.3;
           -ms-flex: 3.3;
               flex: 3.3;
       background-color: #f43b3b;
       border-right: none; }
-      .user:hover .action__button, .user.hovering .action__button {
+      .user:hover .action__button, .user.remove .action__button, .user.hovering .action__button {
         color: #fff; }
-      .user:hover .action__text, .user.hovering .action__text {
+      .user:hover .action__text, .user.remove .action__text, .user.hovering .action__text {
         display: inline; }
+  .user.remove {
+    width: 103.5%; }
+    .user.remove .action,
+    .user.remove .user__name,
+    .user.remove .user__zodiac,
+    .user.remove .user__age {
+      background-color: #4e607c; }
+    .user.remove .user__age {
+      padding-left: 33px; }
+    .user.remove .user__zodiac {
+      padding-left: 33px; }
+    .user.remove .action__button, .user.remove .action__text {
+      display: none; }
 
 .modal {
   display: none; }

@@ -64,6 +64,7 @@ body {
             margin-top: 1px;
             display: none;
             font-weight: bold;
+            color: #fff;
         }
     }
     &__action,
@@ -85,9 +86,8 @@ body {
     &:hover, &.hovering {
         width: 651px;
         transform: translateX(-11px);
-        padding-right: 0;
-        padding-left: 0;
-        z-index: -1000;
+        padding: 0;
+        // z-index: -1000;
         & .action,
         & .user__name,
         & .user__zodiac,
@@ -120,6 +120,27 @@ body {
             }
         }
         
+    }
+    &.remove {
+        @extend .user:hover;
+        width: 103.5%;
+        & .action,
+        & .user__name,
+        & .user__zodiac,
+        & .user__age {
+            background-color: #4e607c;       
+        }
+        & .user__age { 
+            padding-left: 33px;
+        }
+        & .user__zodiac {    
+            padding-left: 33px;
+        }
+        & .action {
+            &__button, &__text {
+                display: none;
+            }
+        }
     }
 }
 

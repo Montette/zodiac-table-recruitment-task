@@ -1,0 +1,128 @@
+@import 'grid';
+@import 'normalize';
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #22303f;
+    font-family: 'Roboto', sans-serif;
+}
+
+.users {
+    &__container {
+        margin: 0 auto;
+        max-width: 640px;
+        max-height: 350px;
+        position: relative;
+        margin-top: 50px;
+        border-radius: 4px;
+        border-top: 3.5px solid #192532;
+        border-bottom: 3.5px solid #192532;
+        padding-top: 2px;
+        padding-bottom: 3px;
+    }
+}
+
+.user {
+    @extend .grid-row;
+    background: #192532;
+    padding-left: 12px;
+    padding-right: 12px;
+    &__name {
+        text-align: left;
+        padding-right: 0;
+        @extend .col-9;
+    }
+    &__age {
+        text-align: left;
+        @extend .col-6;
+    }
+    &__zodiac {
+        text-align: left;
+        @extend .col-8;
+    }
+    & .action {
+        @extend .col-1;
+        padding-right: 8px;
+        padding-left: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__button {
+            background-color: transparent;
+            border: none;
+            color: #873037;
+            width:12.3px;
+        }
+        &__text {
+            font-size: 12px;
+            position: relative;
+            right: 1.5px;
+            margin-top: 1px;
+            display: none;
+            font-weight: bold;
+        }
+    }
+    &__action,
+    &__name,
+    &__zodiac,
+    &__age {
+        margin-left: 0;
+        padding: 0 15px;
+        line-height: 40px;
+        background: #192532;
+        color: darken(#fff, 25%);
+        height: 40px;
+        border-bottom: 1px solid darken(#192532, 2%);
+        font-size: 14px;
+    }
+    & p {
+        margin: 0;
+    }
+    &:hover, &.hovering {
+        width: 651px;
+        transform: translateX(-11px);
+        padding-right: 0;
+        padding-left: 0;
+        z-index: -1000;
+        & .action,
+        & .user__name,
+        & .user__zodiac,
+        & .user__age {
+            background-color: #405a74;
+            padding-left: 38px;
+
+        }
+        & .user__name {
+            padding-left: 30px;
+        }
+        & .user__age {
+            padding-left: 44px;
+        }
+        & .user__zodiac {
+            padding-left: 39px;
+            flex: 7;
+        }
+        & .action {
+            padding: 0 18px;
+            flex: 3.3;
+            background-color: #f43b3b;
+            border-right: none;
+            &__button {
+                // margin-left: 4px;
+                color: #fff;
+            }
+            &__text {
+                display: inline;
+            }
+        }
+        
+    }
+}
+
+.modal {
+    display: none;
+}

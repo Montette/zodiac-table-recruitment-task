@@ -556,14 +556,24 @@ body {
     .user.remove .user__zodiac,
     .user.remove .user__age {
       background-color: #4e607c; }
-    .user.remove .user__age, .user.remove .user__zodiac {
+    .user.remove .user__age,
+    .user.remove .user__zodiac {
       padding-left: 33px; }
     .user.remove .action__button, .user.remove .action__text {
       display: none; }
+    .user.remove.remove-animation {
+      position: absolute;
+      -webkit-animation-name: removingAnim;
+              animation-name: removingAnim;
+      -webkit-animation-duration: 3s;
+              animation-duration: 3s;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      -webkit-animation-delay: .2s;
+              animation-delay: .2s; }
   .user .modal {
     position: absolute;
     background-color: #2d4053;
-    bottom: -85%;
     bottom: -30px;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -571,7 +581,12 @@ body {
     z-index: 1000;
     width: 92.5%;
     height: 30px;
-    border-radius: 0 0 4px 4px; }
+    border-radius: 0 0 4px 4px;
+    display: none; }
+    .user .modal.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
     .user .modal__text {
       line-height: 30px;
       padding-left: 10px;
@@ -589,3 +604,47 @@ body {
       .user .modal__button--confirm {
         background-color: #367237;
         border-bottom-right-radius: 4px; }
+
+@-webkit-keyframes removingAnim {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  10% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1.1);
+            transform: translateY(0) scale(1.1); }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1); }
+  60% {
+    opacity: 0;
+    -webkit-transform: translateY(300px) scale(1);
+            transform: translateY(300px) scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(300px) scale(1);
+            transform: translateY(300px) scale(1); } }
+
+@keyframes removingAnim {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  10% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1.1);
+            transform: translateY(0) scale(1.1); }
+  30% {
+    opacity: 1;
+    -webkit-transform: translateY(0) scale(1);
+            transform: translateY(0) scale(1); }
+  60% {
+    opacity: 0;
+    -webkit-transform: translateY(300px) scale(1);
+            transform: translateY(300px) scale(1); }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(300px) scale(1);
+            transform: translateY(300px) scale(1); } }

@@ -55,7 +55,7 @@ body {
             background-color: transparent;
             border: none;
             color: #873037;
-            width:12.3px;
+            width: 12.3px;
         }
         &__text {
             font-size: 12px;
@@ -84,11 +84,11 @@ body {
     & p {
         margin: 0;
     }
-    &:hover, &.hovering {
+    &:hover,
+    &.hovering {
         width: 651px;
         transform: translateX(-11px);
-        padding: 0;
-        // z-index: -1000;
+        padding: 0; // z-index: -1000;
         & .action,
         & .user__name,
         & .user__zodiac,
@@ -119,7 +119,6 @@ body {
                 display: inline;
             }
         }
-        
     }
     &.remove {
         @extend .user:hover;
@@ -128,24 +127,30 @@ body {
         & .user__name,
         & .user__zodiac,
         & .user__age {
-            background-color: #4e607c;       
+            background-color: #4e607c;
         }
-        & .user__age, & .user__zodiac { 
+        & .user__age,
+        & .user__zodiac {
             padding-left: 33px;
         }
-     
         & .action {
-            &__button, &__text {
+            &__button,
+            &__text {
                 display: none;
             }
         }
+        &.remove-animation {
+            position: absolute;
+            animation-name: removingAnim;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-delay: .2s;
+        }
     }
-
     .modal {
         @extend .grid-row;
         position: absolute;
-        background-color: #2d4053;  
-        bottom: -85%;
+        background-color: #2d4053;
         bottom: -30px;
         left: 50%;
         transform: translateX(-50%);
@@ -153,10 +158,10 @@ body {
         width: 92.5%;
         height: 30px;
         border-radius: 0 0 4px 4px;
-        // display: flex;
-        
-        // flex-flow: column wrap;
-        // display: none;
+        display: none;
+        &.active {
+            display: flex;
+        }
         &__text {
             @extend .col-20;
             line-height: 30px;
@@ -182,3 +187,25 @@ body {
     }
 }
 
+@keyframes removingAnim {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0) scale(1.1);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    60% {
+        opacity: 0;
+        transform: translateY(300px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(300px) scale(1);
+    }
+}

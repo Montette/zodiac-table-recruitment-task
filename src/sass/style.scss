@@ -79,6 +79,7 @@ body {
         height: 40px;
         border-bottom: 1px solid darken(#192532, 2%);
         font-size: 14px;
+        font-weight: bold;
     }
     & p {
         margin: 0;
@@ -94,7 +95,6 @@ body {
         & .user__age {
             background-color: #405a74;
             padding-left: 38px;
-
         }
         & .user__name {
             padding-left: 30px;
@@ -130,20 +130,55 @@ body {
         & .user__age {
             background-color: #4e607c;       
         }
-        & .user__age { 
+        & .user__age, & .user__zodiac { 
             padding-left: 33px;
         }
-        & .user__zodiac {    
-            padding-left: 33px;
-        }
+     
         & .action {
             &__button, &__text {
                 display: none;
             }
         }
     }
+
+    .modal {
+        @extend .grid-row;
+        position: absolute;
+        background-color: #2d4053;  
+        bottom: -85%;
+        bottom: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        width: 92.5%;
+        height: 30px;
+        border-radius: 0 0 4px 4px;
+        // display: flex;
+        
+        // flex-flow: column wrap;
+        // display: none;
+        &__text {
+            @extend .col-20;
+            line-height: 30px;
+            padding-left: 10px;
+            color: darken(#fff, 25%);
+            font-size: 12px;
+            font-weight: bold;
+        }
+        &__button {
+            @extend .col-2;
+            background-color: transparent;
+            border: none;
+            border-left: 1px solid darken(#192532, 2%);
+            color: darken(#fff, 25%);
+            font-size: 12px;
+            font-weight: bold;
+            padding: 0 15px;
+            &--confirm {
+                background-color: #367237;
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
 }
 
-.modal {
-    display: none;
-}

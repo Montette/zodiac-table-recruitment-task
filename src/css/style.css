@@ -1,4 +1,4 @@
-.grid-row, .user {
+.grid-row, .user, .user .modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7,7 +7,7 @@
       -ms-flex-flow: column wrap;
           flex-flow: column wrap; }
   @media (min-width: 520px) {
-    .grid-row, .user {
+    .grid-row, .user, .user .modal {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-flow: row wrap;
@@ -18,7 +18,7 @@
       -ms-flex: .5;
           flex: .5; }
 
-.col-2 {
+.col-2, .user .modal__button {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2; }
@@ -108,7 +108,7 @@
       -ms-flex: 19;
           flex: 19; }
 
-.col-20 {
+.col-20, .user .modal__text {
   -webkit-box-flex: 20;
       -ms-flex: 20;
           flex: 20; }
@@ -502,7 +502,8 @@ body {
     color: #bfbfbf;
     height: 40px;
     border-bottom: 1px solid #16202b;
-    font-size: 14px; }
+    font-size: 14px;
+    font-weight: bold; }
   .user p {
     margin: 0; }
   .user:hover, .user.remove, .user.hovering {
@@ -555,12 +556,36 @@ body {
     .user.remove .user__zodiac,
     .user.remove .user__age {
       background-color: #4e607c; }
-    .user.remove .user__age {
-      padding-left: 33px; }
-    .user.remove .user__zodiac {
+    .user.remove .user__age, .user.remove .user__zodiac {
       padding-left: 33px; }
     .user.remove .action__button, .user.remove .action__text {
       display: none; }
-
-.modal {
-  display: none; }
+  .user .modal {
+    position: absolute;
+    background-color: #2d4053;
+    bottom: -85%;
+    bottom: -30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    z-index: 1000;
+    width: 92.5%;
+    height: 30px;
+    border-radius: 0 0 4px 4px; }
+    .user .modal__text {
+      line-height: 30px;
+      padding-left: 10px;
+      color: #bfbfbf;
+      font-size: 12px;
+      font-weight: bold; }
+    .user .modal__button {
+      background-color: transparent;
+      border: none;
+      border-left: 1px solid #16202b;
+      color: #bfbfbf;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 0 15px; }
+      .user .modal__button--confirm {
+        background-color: #367237;
+        border-bottom-right-radius: 4px; }

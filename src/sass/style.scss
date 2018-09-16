@@ -47,8 +47,9 @@ body {
         &__text {
             color: $lightBlue;
             margin-bottom: 15px;
-            font-size: 15px;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, .7);
+            font-size: 16px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+            font-weight: 500;
         }
 
         &__name {
@@ -98,12 +99,17 @@ body {
         padding: 0 15px;
         line-height: 40px;
         background: $rowColor;
-        color: darken(#fff, 25%);
+        color: darken(#fff, 18%);
         height: 40px;
         border-bottom: 1px solid darken($rowColor, 2%);
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 500;
+        @media only screen and (max-width: 589px) {
+            font-size: 12px;
+            padding: 0 10px;
+        }
         @media only screen and (max-width: 520px) {
+            font-size: 14px;
             @include FlexPosition(space-between, center);
 
             &:before {
@@ -292,11 +298,13 @@ body {
         height: 30px;
         border-radius: 0 0 4px 4px;
         display: none;
-
+        @media (max-width: 327px) {
+            height: 40px; 
+            bottom: -40px;       
+        }
         &.active {
             display: flex;
         }
-
         &__text {
             @extend .col-20;
             line-height: 30px;
@@ -304,6 +312,19 @@ body {
             color: darken(#fff, 25%);
             font-size: 12px;
             font-weight: bold;
+            @media (max-width: 520px) {
+                flex: 22;
+            }
+            @media (max-width: 403px) {
+                font-size: 11px;            
+            }
+            @media (max-width: 327px) {
+                height: 40px;
+                & p {
+                    line-height: 15px;
+                    margin-top: 5px;
+                }            
+            }
         }
 
         &__button {
@@ -315,6 +336,15 @@ body {
             font-size: 12px;
             font-weight: bold;
             padding: 0 14px;
+            @media (max-width: 520px) {
+                flex: 1;
+                
+            }
+            @media (max-width: 403px) {
+                padding: 0 5px;
+                font-size: 11px;
+                
+            }
 
             &:hover {
                 background-color: lighten(#2d4053, 5%);

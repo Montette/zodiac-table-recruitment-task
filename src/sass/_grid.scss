@@ -1,7 +1,7 @@
 .grid-row {
     display: flex;
     flex-flow: column wrap;
-    @media (min-width: 520px) {
+    @media (min-width: 521px) {
         flex-flow: row wrap;
     }
 

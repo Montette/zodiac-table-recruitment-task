@@ -6,7 +6,7 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap; }
-  @media (min-width: 520px) {
+  @media (min-width: 521px) {
     .grid-row, .users .label, .user, .user .modal {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
@@ -463,8 +463,9 @@ body {
     .users .label__text {
       color: #8aadce;
       margin-bottom: 15px;
-      font-size: 15px;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
+      font-size: 16px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+      font-weight: 500; }
     .users .label__age {
       padding-left: 40px; }
     .users .label__zodiac {
@@ -489,13 +490,18 @@ body {
     padding: 0 15px;
     line-height: 40px;
     background: #192532;
-    color: #bfbfbf;
+    color: #d1d1d1;
     height: 40px;
     border-bottom: 1px solid #16202b;
     font-size: 14px;
-    font-weight: bold; }
+    font-weight: 500; }
+    @media only screen and (max-width: 589px) {
+      .user .action, .user__name, .user__zodiac, .user__age {
+        font-size: 12px;
+        padding: 0 10px; } }
     @media only screen and (max-width: 520px) {
       .user .action, .user__name, .user__zodiac, .user__age {
+        font-size: 14px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -658,6 +664,10 @@ body {
     height: 30px;
     border-radius: 0 0 4px 4px;
     display: none; }
+    @media (max-width: 327px) {
+      .user .modal {
+        height: 40px;
+        bottom: -40px; } }
     .user .modal.active {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -668,6 +678,20 @@ body {
       color: #bfbfbf;
       font-size: 12px;
       font-weight: bold; }
+      @media (max-width: 520px) {
+        .user .modal__text {
+          -webkit-box-flex: 22;
+              -ms-flex: 22;
+                  flex: 22; } }
+      @media (max-width: 403px) {
+        .user .modal__text {
+          font-size: 11px; } }
+      @media (max-width: 327px) {
+        .user .modal__text {
+          height: 40px; }
+          .user .modal__text p {
+            line-height: 15px;
+            margin-top: 5px; } }
     .user .modal__button {
       background-color: transparent;
       border: none;
@@ -676,6 +700,15 @@ body {
       font-size: 12px;
       font-weight: bold;
       padding: 0 14px; }
+      @media (max-width: 520px) {
+        .user .modal__button {
+          -webkit-box-flex: 1;
+              -ms-flex: 1;
+                  flex: 1; } }
+      @media (max-width: 403px) {
+        .user .modal__button {
+          padding: 0 5px;
+          font-size: 11px; } }
       .user .modal__button:hover {
         background-color: #364d64;
         cursor: pointer; }

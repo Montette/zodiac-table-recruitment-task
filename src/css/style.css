@@ -1,4 +1,4 @@
-.grid-row, .user, .user .modal {
+.grid-row, .users .label, .user, .user .modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7,13 +7,13 @@
       -ms-flex-flow: column wrap;
           flex-flow: column wrap; }
   @media (min-width: 520px) {
-    .grid-row, .user, .user .modal {
+    .grid-row, .users .label, .user, .user .modal {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: normal;
           -ms-flex-flow: row wrap;
               flex-flow: row wrap; } }
 
-.col-1, .user .action {
+.col-1, .users .label__action, .user .action {
   -webkit-box-flex: .5;
       -ms-flex: .5;
           flex: .5; }
@@ -38,7 +38,7 @@
       -ms-flex: 5;
           flex: 5; }
 
-.col-6, .user__age {
+.col-6, .users .label__age, .user__age {
   -webkit-box-flex: 6;
       -ms-flex: 6;
           flex: 6; }
@@ -48,12 +48,12 @@
       -ms-flex: 7;
           flex: 7; }
 
-.col-8, .user__zodiac {
+.col-8, .users .label__zodiac, .user__zodiac {
   -webkit-box-flex: 8;
       -ms-flex: 8;
           flex: 8; }
 
-.col-9, .user__name {
+.col-9, .users .label__name, .user__name {
   -webkit-box-flex: 9;
       -ms-flex: 9;
           flex: 9; }
@@ -446,17 +446,32 @@ body {
   background-color: #22303f;
   font-family: 'Roboto', sans-serif; }
 
-.users__container {
-  margin: 0 auto;
-  max-width: 640px;
-  max-height: 350px;
-  position: relative;
-  margin-top: 50px;
-  border-radius: 4px;
-  border-top: 3.5px solid #192532;
-  border-bottom: 3.5px solid #192532;
-  padding-top: 2px;
-  padding-bottom: 3px; }
+.users {
+  padding-top: 50px; }
+  .users__container {
+    margin: 0 auto;
+    max-width: 640px;
+    max-height: 350px;
+    position: relative;
+    border-radius: 4px;
+    border-top: 3.5px solid #192532;
+    border-bottom: 3.5px solid #192532;
+    padding: 2px 0 3px 0; }
+  .users .label {
+    margin: 0 auto;
+    max-width: 640px;
+    padding: 0 25px; }
+    .users .label__text {
+      color: #829ac2;
+      margin-bottom: 15px;
+      font-size: 15px;
+      font-weight: bold; }
+    .users .label__name {
+      padding-left: 8px; }
+    .users .label__age {
+      padding-left: 40px; }
+    .users .label__zodiac {
+      padding-left: 40px; }
 
 .user {
   background: #192532;
@@ -485,7 +500,7 @@ body {
       background-color: transparent;
       border: none;
       color: #873037;
-      width: 12.3px; }
+      width: 13px; }
     .user .action__text {
       font-size: 12px;
       position: relative;
@@ -546,7 +561,8 @@ body {
       background-color: #f43b3b;
       border-right: none; }
       .user:hover .action__button, .user.remove .action__button, .user.hovering .action__button {
-        color: #fff; }
+        color: #fff;
+        cursor: pointer; }
       .user:hover .action__text, .user.remove .action__text, .user.hovering .action__text {
         display: inline; }
   .user.remove {
@@ -600,10 +616,17 @@ body {
       color: #bfbfbf;
       font-size: 12px;
       font-weight: bold;
-      padding: 0 15px; }
+      padding: 0 14px; }
+      .user .modal__button:hover {
+        background-color: #364d64;
+        cursor: pointer; }
       .user .modal__button--confirm {
         background-color: #367237;
         border-bottom-right-radius: 4px; }
+        .user .modal__button--confirm:hover {
+          background-color: #3e833f; }
+  .user:last-child [class*="user__"] {
+    border-bottom: none; }
 
 @-webkit-keyframes removingAnim {
   0% {

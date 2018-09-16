@@ -8,6 +8,13 @@ const showModal = (user) => {
 }
 
 const removeFromDOM = (event) => {
+    if (!('remove' in Element.prototype)) {
+        Element.prototype.remove = function() {
+            if (this.parentNode) {
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
     event.target.remove();
 }
 
@@ -23,8 +30,8 @@ const cancelRemoving = (user) => {
     user.classList.remove('remove')
 }
 
-users.forEach(user => {
-    user.addEventListener('click', ()=> {
+[...users].forEach(user => {
+    user.addEventListener('click', (event)=> {
         console.log(event.target)
         if(event.target.classList.contains('action__button')) {
             showModal(user)

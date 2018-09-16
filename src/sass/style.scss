@@ -1,5 +1,13 @@
 @import 'grid';
 @import 'normalize';
+
+$rowColor: #192532;
+@mixin FlexPosition($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align
+}
+
 *,
 *:before,
 *:after {
@@ -12,23 +20,53 @@ body {
 }
 
 .users {
+    padding-top: 50px;
     &__container {
         margin: 0 auto;
         max-width: 640px;
         max-height: 350px;
         position: relative;
-        margin-top: 50px;
+        // margin-top: 15px;
         border-radius: 4px;
-        border-top: 3.5px solid #192532;
-        border-bottom: 3.5px solid #192532;
-        padding-top: 2px;
-        padding-bottom: 3px;
+        border-top: 3.5px solid $rowColor;
+        border-bottom: 3.5px solid $rowColor;
+        padding: 2px 0 3px 0;
     }
+    & .label {
+        margin: 0 auto;
+        max-width: 640px;
+        @extend .grid-row;
+        padding: 0 25px;    
+        &__text {
+            color: #829ac2;
+            margin-bottom: 15px; 
+            font-size: 15px; 
+            font-weight: bold;    
+        }
+        &__name {
+            @extend .col-9;
+            padding-left: 8px;
+        }
+        &__age{
+            @extend .col-6;
+            padding-left: 40px;
+        }
+        &__zodiac {
+            @extend .col-8;
+            padding-left: 40px;
+        }
+        &__action {
+            @extend .col-1;
+        }
+       
+   
+    }
+
 }
 
 .user {
     @extend .grid-row;
-    background: #192532;
+    background: $rowColor;
     padding-left: 12px;
     padding-right: 12px;
     &__name {
@@ -48,15 +86,19 @@ body {
         @extend .col-1;
         padding-right: 8px;
         padding-left: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include FlexPosition(center,center);
         &__button {
             background-color: transparent;
             border: none;
             color: #873037;
-            width: 12.3px;
+            width: 13px;
+            
+            
         }
+        // & .fa-trash{
+        //     position: relative;
+        //     right: 5px;
+        // }
         &__text {
             font-size: 12px;
             position: relative;
@@ -65,6 +107,7 @@ body {
             display: none;
             font-weight: bold;
             color: #fff;
+            
         }
     }
     &__action,
@@ -74,10 +117,10 @@ body {
         margin-left: 0;
         padding: 0 15px;
         line-height: 40px;
-        background: #192532;
+        background: $rowColor;
         color: darken(#fff, 25%);
         height: 40px;
-        border-bottom: 1px solid darken(#192532, 2%);
+        border-bottom: 1px solid darken($rowColor, 2%);
         font-size: 14px;
         font-weight: bold;
     }
@@ -114,9 +157,13 @@ body {
             &__button {
                 // margin-left: 4px;
                 color: #fff;
+                cursor: pointer;
+                
+               
             }
             &__text {
                 display: inline;
+                
             }
         }
     }
@@ -174,17 +221,31 @@ body {
             @extend .col-2;
             background-color: transparent;
             border: none;
-            border-left: 1px solid darken(#192532, 2%);
+            border-left: 1px solid darken($rowColor, 2%);
             color: darken(#fff, 25%);
             font-size: 12px;
             font-weight: bold;
-            padding: 0 15px;
+            padding: 0 14px;
+            &:hover {
+                background-color:lighten(#2d4053,5%);
+                cursor: pointer;
+            }
             &--confirm {
                 background-color: #367237;
                 border-bottom-right-radius: 4px;
+                &:hover {
+                    background-color:lighten(#367237,5%);
+                }
             }
+
         }
     }
+    &:last-child {
+        & [class*="user__"] {
+            border-bottom: none;;
+        }
+    }
+ 
 }
 
 @keyframes removingAnim {

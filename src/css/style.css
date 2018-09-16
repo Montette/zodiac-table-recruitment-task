@@ -461,12 +461,10 @@ body {
     max-width: 640px;
     padding: 0 25px; }
     .users .label__text {
-      color: #829ac2;
+      color: #8aadce;
       margin-bottom: 15px;
       font-size: 15px;
-      font-weight: bold; }
-    .users .label__name {
-      padding-left: 8px; }
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7); }
     .users .label__age {
       padding-left: 40px; }
     .users .label__zodiac {
@@ -481,9 +479,9 @@ body {
   background: #192532;
   padding: 0 12px; }
   @media only screen and (max-width: 520px) {
-    .user:nth-child(odd):not(:hover) {
+    .user:nth-child(odd):not(:hover):not(:remove) {
       background-color: #16202b; }
-      .user:nth-child(odd):not(:hover) [class*="user__"]:not(:last-child) {
+      .user:nth-child(odd):not(:hover):not(:remove) [class*="user__"]:not(:last-child) {
         background-color: #16202b;
         border-bottom-color: #1c2a39; } }
   .user .action, .user__name, .user__zodiac, .user__age {
@@ -508,7 +506,7 @@ body {
             -ms-flex-align: center;
                 align-items: center; }
         .user .action:before, .user__name:before, .user__zodiac:before, .user__age:before {
-          color: #829ac2; } }
+          color: #8aadce; } }
   .user__name {
     text-align: left; }
     @media only screen and (max-width: 520px) {
@@ -541,6 +539,9 @@ body {
       border: none;
       color: #873037;
       width: 13px; }
+      .user .action__button:focus {
+        outline: none;
+        color: #dfa4a9; }
     .user .action__text {
       font-size: 12px;
       position: relative;
@@ -556,8 +557,6 @@ body {
     margin: 0; }
   .user:hover, .user.remove, .user.hovering {
     width: calc(102% - 1px);
-    -webkit-transform: translateX(-11px);
-            transform: translateX(-11px);
     -webkit-transform: translateX(-1.68%);
             transform: translateX(-1.68%);
     padding: 0; }
@@ -626,6 +625,10 @@ body {
     .user.remove .user__age,
     .user.remove .user__zodiac {
       padding-left: 33px; }
+      @media only screen and (max-width: 520px) {
+        .user.remove .user__age,
+        .user.remove .user__zodiac {
+          padding-left: 15px; } }
     .user.remove .action__button, .user.remove .action__text {
       display: none; }
     @media only screen and (max-width: 520px) {

@@ -3,7 +3,9 @@
 const users = document.querySelectorAll('.user');
 
 const showModal = (user) => {
-    user.querySelector('.modal').classList.add('active');
+    const modal = user.querySelector('.modal');
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
     user.classList.add('remove')
 }
 
@@ -26,7 +28,9 @@ const removeUser = (user) => {
 }
 
 const cancelRemoving = (user) => {
-    user.querySelector('.modal').classList.remove('active');
+    const modal = user.querySelector('.modal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     user.classList.remove('remove')
 }
 

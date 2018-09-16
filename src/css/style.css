@@ -447,11 +447,10 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 .users {
-  padding-top: 50px; }
+  padding: 50px 20px; }
   .users__container {
     margin: 0 auto;
     max-width: 640px;
-    max-height: 350px;
     position: relative;
     border-radius: 4px;
     border-top: 3.5px solid #192532;
@@ -472,18 +471,59 @@ body {
       padding-left: 40px; }
     .users .label__zodiac {
       padding-left: 40px; }
+    @media only screen and (max-width: 520px) {
+      .users .label {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; } }
 
 .user {
   background: #192532;
-  padding-left: 12px;
-  padding-right: 12px; }
+  padding: 0 12px; }
+  @media only screen and (max-width: 520px) {
+    .user:nth-child(odd):not(:hover) {
+      background-color: #16202b; }
+      .user:nth-child(odd):not(:hover) [class*="user__"]:not(:last-child) {
+        background-color: #16202b;
+        border-bottom-color: #1c2a39; } }
+  .user .action, .user__name, .user__zodiac, .user__age {
+    margin-left: 0;
+    padding: 0 15px;
+    line-height: 40px;
+    background: #192532;
+    color: #bfbfbf;
+    height: 40px;
+    border-bottom: 1px solid #16202b;
+    font-size: 14px;
+    font-weight: bold; }
+    @media only screen and (max-width: 520px) {
+      .user .action, .user__name, .user__zodiac, .user__age {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; }
+        .user .action:before, .user__name:before, .user__zodiac:before, .user__age:before {
+          color: #829ac2; } }
   .user__name {
-    text-align: left;
-    padding-right: 0; }
+    text-align: left; }
+    @media only screen and (max-width: 520px) {
+      .user__name:before {
+        content: "Name:"; } }
   .user__age {
     text-align: left; }
+    @media only screen and (max-width: 520px) {
+      .user__age:before {
+        content: "Age:"; } }
   .user__zodiac {
     text-align: left; }
+    @media only screen and (max-width: 520px) {
+      .user__zodiac:before {
+        content: "Zodiac:"; } }
   .user .action {
     padding-right: 8px;
     padding-left: 8px;
@@ -509,22 +549,17 @@ body {
       display: none;
       font-weight: bold;
       color: #fff; }
-  .user__action, .user__name, .user__zodiac, .user__age {
-    margin-left: 0;
-    padding: 0 15px;
-    line-height: 40px;
-    background: #192532;
-    color: #bfbfbf;
-    height: 40px;
-    border-bottom: 1px solid #16202b;
-    font-size: 14px;
-    font-weight: bold; }
+      @media only screen and (max-width: 520px) {
+        .user .action__text {
+          display: inline; } }
   .user p {
     margin: 0; }
   .user:hover, .user.remove, .user.hovering {
-    width: 651px;
+    width: calc(102% - 1px);
     -webkit-transform: translateX(-11px);
             transform: translateX(-11px);
+    -webkit-transform: translateX(-1.68%);
+            transform: translateX(-1.68%);
     padding: 0; }
     .user:hover .action, .user.remove .action,
     .user:hover .user__name,
@@ -565,6 +600,22 @@ body {
         cursor: pointer; }
       .user:hover .action__text, .user.remove .action__text, .user.hovering .action__text {
         display: inline; }
+      @media only screen and (max-width: 520px) {
+        .user:hover .action, .user.remove .action, .user.hovering .action {
+          border-bottom: none; } }
+    @media only screen and (max-width: 520px) {
+      .user:hover .action, .user.remove .action,
+      .user:hover .user__name,
+      .user.remove .user__name,
+      .user:hover .user__zodiac,
+      .user.remove .user__zodiac,
+      .user:hover .user__age,
+      .user.remove .user__age, .user.hovering .action,
+      .user.hovering .user__name,
+      .user.hovering .user__zodiac,
+      .user.hovering .user__age {
+        border-bottom-color: #3c556d;
+        padding: 0 15px; } }
   .user.remove {
     width: 103.5%; }
     .user.remove .action,
@@ -577,8 +628,12 @@ body {
       padding-left: 33px; }
     .user.remove .action__button, .user.remove .action__text {
       display: none; }
+    @media only screen and (max-width: 520px) {
+      .user.remove .action {
+        display: none; } }
     .user.remove.remove-animation {
       position: absolute;
+      z-index: 10000;
       -webkit-animation-name: removingAnim;
               animation-name: removingAnim;
       -webkit-animation-duration: 3s;
@@ -589,6 +644,7 @@ body {
               animation-delay: .2s; }
   .user .modal {
     position: absolute;
+    z-index: 99999;
     background-color: #2d4053;
     bottom: -30px;
     left: 50%;
@@ -625,8 +681,15 @@ body {
         border-bottom-right-radius: 4px; }
         .user .modal__button--confirm:hover {
           background-color: #3e833f; }
-  .user:last-child [class*="user__"] {
-    border-bottom: none; }
+    @media (max-width: 520px) {
+      .user .modal {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: row wrap;
+                flex-flow: row wrap; } }
+  @media only screen and (min-width: 520px) {
+    .user:last-child [class*="user__"] {
+      border-bottom: none; } }
 
 @-webkit-keyframes removingAnim {
   0% {

@@ -74,6 +74,7 @@ body {
     @extend .grid-row;
     background: $rowColor;
     padding: 0 12px;
+    
     @media only screen and (max-width: 520px) {
         &:nth-child(odd):not(:hover):not(.remove) {
             & [class*="user__"]:not(:last-child) {
@@ -92,6 +93,7 @@ body {
         line-height: 40px;
         background: $rowColor;
         height: 40px;
+        min-height: 40px;
         border-bottom: 1px solid darken($rowColor, 2%);
         @include font(14px, 500, darken(#fff, 18%));
         @media only screen and (max-width: 589px) {

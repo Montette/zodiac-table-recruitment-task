@@ -491,6 +491,7 @@ body {
     line-height: 40px;
     background: #192532;
     height: 40px;
+    min-height: 40px;
     border-bottom: 1px solid #16202b;
     font-size: 14px;
     font-weight: 500;

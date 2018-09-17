@@ -4,12 +4,7 @@
     @media (min-width: 521px) {
         flex-flow: row wrap;
     }
-
 }
-
-// [class*="col-"] {
-//     flex: 1;
-// }
 
 .col-1  { flex: .5; }
 .col-2  { flex: 2;  }

@@ -461,11 +461,11 @@ body {
     max-width: 640px;
     padding: 0 25px; }
     .users .label__text {
-      color: #8aadce;
       margin-bottom: 15px;
-      font-size: 16px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-      font-weight: 500; }
+      font-size: 16px;
+      font-weight: 500;
+      color: #8aadce; }
     .users .label__age {
       padding-left: 40px; }
     .users .label__zodiac {
@@ -480,21 +480,21 @@ body {
   background: #192532;
   padding: 0 12px; }
   @media only screen and (max-width: 520px) {
-    .user:nth-child(odd):not(:hover):not(:remove) {
+    .user:nth-child(odd):not(:hover):not(.remove) {
       background-color: #16202b; }
-      .user:nth-child(odd):not(:hover):not(:remove) [class*="user__"]:not(:last-child) {
+      .user:nth-child(odd):not(:hover):not(.remove) [class*="user__"]:not(:last-child) {
         background-color: #16202b;
         border-bottom-color: #1c2a39; } }
   .user .action, .user__name, .user__zodiac, .user__age {
     margin-left: 0;
-    padding: 0 15px;
+    padding: 0 12px;
     line-height: 40px;
     background: #192532;
-    color: #d1d1d1;
     height: 40px;
     border-bottom: 1px solid #16202b;
     font-size: 14px;
-    font-weight: 500; }
+    font-weight: 500;
+    color: #d1d1d1; }
     @media only screen and (max-width: 589px) {
       .user .action, .user__name, .user__zodiac, .user__age {
         font-size: 12px;
@@ -549,12 +549,12 @@ body {
         outline: none;
         color: #dfa4a9; }
     .user .action__text {
-      font-size: 12px;
       position: relative;
       right: 1.5px;
       margin-top: 1px;
       display: none;
-      font-weight: bold;
+      font-size: 12px;
+      font-weight: 700;
       color: #fff; }
       @media only screen and (max-width: 520px) {
         .user .action__text {
@@ -576,20 +576,19 @@ body {
     .user.hovering .user__name,
     .user.hovering .user__zodiac,
     .user.hovering .user__age {
-      background-color: #405a74;
-      padding-left: 38px; }
+      background-color: #405a74; }
     
     .user:hover .user__name,
     .user.remove .user__name, .user.hovering .user__name {
-      padding-left: 30px; }
+      padding-left: 25px; }
     
     .user:hover .user__age,
     .user.remove .user__age, .user.hovering .user__age {
-      padding-left: 44px; }
+      padding-left: 42px; }
     
     .user:hover .user__zodiac,
     .user.remove .user__zodiac, .user.hovering .user__zodiac {
-      padding-left: 39px;
+      padding-left: 32px;
       -webkit-box-flex: 7;
           -ms-flex: 7;
               flex: 7; }
@@ -643,14 +642,8 @@ body {
     .user.remove.remove-animation {
       position: absolute;
       z-index: 10000;
-      -webkit-animation-name: removingAnim;
-              animation-name: removingAnim;
-      -webkit-animation-duration: 3s;
-              animation-duration: 3s;
-      -webkit-animation-fill-mode: forwards;
-              animation-fill-mode: forwards;
-      -webkit-animation-delay: .2s;
-              animation-delay: .2s; }
+      -webkit-animation: removingAnim 3s linear .2s forwards;
+              animation: removingAnim 3s linear .2s forwards; }
   .user .modal {
     position: absolute;
     z-index: 99999;
@@ -675,9 +668,9 @@ body {
     .user .modal__text {
       line-height: 30px;
       padding-left: 10px;
-      color: #bfbfbf;
       font-size: 12px;
-      font-weight: bold; }
+      font-weight: 700;
+      color: #bfbfbf; }
       @media (max-width: 520px) {
         .user .modal__text {
           -webkit-box-flex: 22;
@@ -696,9 +689,9 @@ body {
       background-color: transparent;
       border: none;
       border-left: 1px solid #16202b;
-      color: #bfbfbf;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
+      color: #bfbfbf;
       padding: 0 14px; }
       @media (max-width: 520px) {
         .user .modal__button {

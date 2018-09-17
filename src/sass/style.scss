@@ -2,16 +2,18 @@
 @import 'normalize';
 
 $rowColor: #192532;
-// $lightBlue: #829ac2;
-// $lightBlue: #8aa4ce;
-
 $lightBlue: #8aadce;
 
-// $lightBlue: #4e607c;
 @mixin FlexPosition($justify, $align) {
     display: flex;
     justify-content: $justify;
     align-items: $align
+}
+
+@mixin font($size, $weight, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    color: $color
 }
 
 *,
@@ -27,7 +29,6 @@ body {
 
 .users {
     padding: 50px 20px;
-
     &__container {
         margin: 0 auto;
         max-width: 640px;
@@ -37,39 +38,30 @@ body {
         border-bottom: 3.5px solid $rowColor;
         padding: 2px 0 3px 0;
     }
-
     & .label {
         margin: 0 auto;
         max-width: 640px;
         @extend .grid-row;
         padding: 0 25px;
-
         &__text {
-            color: $lightBlue;
             margin-bottom: 15px;
-            font-size: 16px;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
-            font-weight: 500;
+            @include font(16px, 500, $lightBlue);
         }
-
         &__name {
             @extend .col-9;
         }
-
         &__age {
             @extend .col-6;
             padding-left: 40px;
         }
-
         &__zodiac {
             @extend .col-8;
             padding-left: 40px;
         }
-
         &__action {
             @extend .col-1;
         }
-
         @media only screen and (max-width: 520px) {
             position: absolute;
             top: -9999px;
@@ -83,7 +75,7 @@ body {
     background: $rowColor;
     padding: 0 12px;
     @media only screen and (max-width: 520px) {
-        &:nth-child(odd):not(:hover):not(:remove) {
+        &:nth-child(odd):not(:hover):not(.remove) {
             & [class*="user__"]:not(:last-child) {
                 background-color: darken($rowColor, 2%);
                 border-bottom-color: lighten($rowColor, 2%);
@@ -96,14 +88,12 @@ body {
     &__zodiac,
     &__age {
         margin-left: 0;
-        padding: 0 15px;
+        padding: 0 12px;
         line-height: 40px;
         background: $rowColor;
-        color: darken(#fff, 18%);
         height: 40px;
         border-bottom: 1px solid darken($rowColor, 2%);
-        font-size: 14px;
-        font-weight: 500;
+        @include font(14px, 500, darken(#fff, 18%));
         @media only screen and (max-width: 589px) {
             font-size: 12px;
             padding: 0 10px;
@@ -111,52 +101,43 @@ body {
         @media only screen and (max-width: 520px) {
             font-size: 14px;
             @include FlexPosition(space-between, center);
-
             &:before {
                 color: $lightBlue;
             }
         }
     }
-
     &__name {
         text-align: left;
         @extend .col-9;
-
         @media only screen and (max-width: 520px) {
             &:before {
                 content: "Name:";
             }
         }
     }
-
     &__age {
         text-align: left;
         @extend .col-6;
-
         @media only screen and (max-width: 520px) {
             &:before {
                 content: "Age:";
             }
         }
     }
-
     &__zodiac {
         text-align: left;
         @extend .col-8;
-
         @media only screen and (max-width: 520px) {
             &:before {
                 content: "Zodiac:";
             }
         }
     }
-
     & .action {
         @extend .col-1;
         padding-right: 8px;
         padding-left: 8px;
         @include FlexPosition(center, center);
-
         &__button {
             background-color: transparent;
             border: none;
@@ -167,26 +148,20 @@ body {
                 color: lighten(#873037, 40%);
             }
         }
-
         &__text {
-            font-size: 12px;
             position: relative;
             right: 1.5px;
             margin-top: 1px;
             display: none;
-            font-weight: bold;
-            color: #fff;
-
+            @include font(12px, 700, #fff);
             @media only screen and (max-width: 520px) {
                 display: inline;
             }
         }
     }
-
     & p {
         margin: 0;
     }
-
     &:hover,
     &.hovering {
         width: calc(102% - 1px);
@@ -197,44 +172,34 @@ body {
         & .user__zodiac,
         & .user__age {
             background-color: #405a74;
-            padding-left: 38px;
         }
-
         & .user__name {
-            padding-left: 30px;
+            padding-left: 25px;
         }
-
         & .user__age {
-            padding-left: 44px;
+            padding-left: 42px;
         }
-
         & .user__zodiac {
-            padding-left: 39px;
+            padding-left: 32px;
             flex: 7;
         }
-
         & .action {
             padding: 0 18px;
             flex: 3.3;
             background-color: #f43b3b;
             border-right: none;
-
             &__button {
                 color: #fff;
                 cursor: pointer;
             }
-
             &__text {
                 display: inline;
             }
-
             @media only screen and (max-width: 520px) {
                 border-bottom: none;
             }
         }
-
         @media only screen and (max-width: 520px) {
-
             & .action,
             & .user__name,
             & .user__zodiac,
@@ -244,11 +209,9 @@ body {
             }
         }
     }
-
     &.remove {
         @extend .user:hover;
         width: 103.5%;
-
         & .action,
         & .user__name,
         & .user__zodiac,
@@ -258,33 +221,25 @@ body {
         & .user__age,
         & .user__zodiac {
             padding-left: 33px;
-
             @media only screen and (max-width: 520px) {
                 padding-left: 15px;
             }
         }
-
         & .action {
             &__button,
             &__text {
                 display: none;
             }
-
             @media only screen and (max-width: 520px) {
                 display: none;
             }
         }
-
         &.remove-animation {
             position: absolute;
             z-index: 10000;
-            animation-name: removingAnim;
-            animation-duration: 3s;
-            animation-fill-mode: forwards;
-            animation-delay: .2s;
+            animation: removingAnim 3s linear .2s forwards;
         }
     }
-
     .modal {
         @extend .grid-row;
         position: absolute;
@@ -299,8 +254,8 @@ body {
         border-radius: 0 0 4px 4px;
         display: none;
         @media (max-width: 327px) {
-            height: 40px; 
-            bottom: -40px;       
+            height: 40px;
+            bottom: -40px;
         }
         &.active {
             display: flex;
@@ -309,63 +264,51 @@ body {
             @extend .col-20;
             line-height: 30px;
             padding-left: 10px;
-            color: darken(#fff, 25%);
-            font-size: 12px;
-            font-weight: bold;
+            @include font(12px, 700, darken(#fff, 25%));
             @media (max-width: 520px) {
                 flex: 22;
             }
             @media (max-width: 403px) {
-                font-size: 11px;            
+                font-size: 11px;
             }
             @media (max-width: 327px) {
                 height: 40px;
                 & p {
                     line-height: 15px;
                     margin-top: 5px;
-                }            
+                }
             }
         }
-
         &__button {
             @extend .col-2;
             background-color: transparent;
             border: none;
             border-left: 1px solid darken($rowColor, 2%);
-            color: darken(#fff, 25%);
-            font-size: 12px;
-            font-weight: bold;
+            @include font(12px, 700, darken(#fff, 25%));
             padding: 0 14px;
             @media (max-width: 520px) {
                 flex: 1;
-                
             }
             @media (max-width: 403px) {
                 padding: 0 5px;
                 font-size: 11px;
-                
             }
-
             &:hover {
                 background-color: lighten(#2d4053, 5%);
                 cursor: pointer;
             }
-
             &--confirm {
                 background-color: #367237;
                 border-bottom-right-radius: 4px;
-
                 &:hover {
                     background-color: lighten(#367237, 5%);
                 }
             }
         }
-
         @media (max-width: 520px) {
             flex-flow: row wrap;
         }
     }
-
     @media only screen and (min-width: 520px) {
         &:last-child {
             & [class*="user__"] {
@@ -380,22 +323,18 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-
     10% {
         opacity: 1;
         transform: translateY(0) scale(1.1);
     }
-
     30% {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
-
     60% {
         opacity: 0;
         transform: translateY(300px) scale(1);
     }
-
     100% {
         opacity: 0;
         transform: translateY(300px) scale(1);

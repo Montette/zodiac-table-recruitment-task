@@ -80,6 +80,5 @@ gulp.task('browserSync', function () {
 
   gulp.task('build', function (callback) {
     runSequence('clean:dist', ['serve'], 'useref', 'scripts',
-
       callback)
  })
